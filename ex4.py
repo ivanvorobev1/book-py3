@@ -4,7 +4,7 @@ import argparse
 
 def createParser ():
     parser = argparse.ArgumentParser()
-    parser.add_argument ('name', nargs='?')
+    parser.add_argument ('-g', '--goodbye', action='store_const', const=True)
 
     return parser
 
@@ -13,9 +13,8 @@ if __name__ == '__main__':
     parser = createParser()
     namespace = parser.parse_args()
 
-    # print (namespace)
+    print (namespace)
 
-    if namespace.name:
-        print ("Привет, {}!".format (namespace.name) )
-    else:
-        print ("Привет, мир!")
+    print ("Привет, мир!")
+    if namespace.goodbye:
+        print ("Прощай, мир!")
